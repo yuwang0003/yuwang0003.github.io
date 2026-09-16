@@ -1,0 +1,232 @@
+:root {
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-text: #232323;
+  --color-text-light: #6b6b6b;
+  --color-accent: #1f3a5f;
+  --color-border: #e3e0d8;
+  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 760px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+.site-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.site-name:hover { text-decoration: none; opacity: 0.8; }
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+}
+.site-nav a {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--color-accent); text-decoration: none; }
+.site-nav a.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text);
+}
+
+/* Main */
+main { padding: 3rem 0 4rem; }
+main.container > h1:first-child { margin-top: 0; }
+
+.page-intro {
+  color: var(--color-text-light);
+  margin-top: -0.5rem;
+}
+
+/* Home page layout */
+.home-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+.home-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+.home-sidebar .profile-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-accent);
+  margin-bottom: 1.25rem;
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.profile-photo.no-photo img { display: none; }
+
+.home-sidebar h1 { margin: 0 0 0.3rem; font-size: 1.6rem; }
+.subtitle {
+  color: var(--color-text-light);
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.home-main { flex: 1; min-width: 0; }
+.bio { margin: 2rem 0 2rem; font-size: 1.05rem; }
+.bio p { margin: 0 0 0.75rem; }
+.bio p:last-child { margin-bottom: 0; }
+
+.links-row { font-size: 0.95rem; }
+.links-row .dot {
+  color: var(--color-border);
+  margin: 0 0.6rem;
+}
+
+/* Research page */
+.research-section { margin-bottom: 2.5rem; }
+.research-section h2 {
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.paper-entry { margin-bottom: 1.75rem; }
+.paper-title { font-size: 1.05rem; margin: 0 0 0.3rem; }
+.paper-meta {
+  color: var(--color-text-light);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+.paper-abstract { margin: 0 0 0.5rem; }
+.paper-links { font-size: 0.9rem; }
+.paper-links .dot { color: var(--color-border); margin: 0 0.6rem; }
+
+/* CV page */
+.cv-section { margin: 2rem 0; }
+.cv-section h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.cv-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* The home page's right column is narrower than the CV page, so role/org
+   plus date don't reliably fit on one line. Stack date below instead of
+   letting it wrap inconsistently from entry to entry. */
+.home-main .cv-item {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+.cv-item-main { display: flex; flex-direction: column; }
+.cv-role { font-weight: 600; }
+.cv-org { color: var(--color-text-light); font-size: 0.9rem; }
+.cv-date {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.cv-bullets {
+  margin: 0.5rem 0 1.25rem;
+  padding-left: 1.25rem;
+  color: var(--color-text-light);
+}
+.cv-bullets li { margin-bottom: 0.3rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 0;
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .nav-toggle { display: flex; }
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    padding-top: 0.75rem;
+  }
+  .site-nav.open { display: flex; }
+  .home-grid { flex-direction: column; align-items: center; }
+  .home-sidebar { width: 100%; max-width: 260px; text-align: center; }
+  .home-main { width: 100%; }
+}
