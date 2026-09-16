@@ -5,8 +5,8 @@
   --color-text-light: #6b6b6b;
   --color-accent: #1f3a5f;
   --color-border: #e3e0d8;
-  --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --max-width: 760px;
 }
 
@@ -47,18 +47,11 @@ h1, h2, h3 {
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-top: 1.1rem;
   padding-bottom: 1.1rem;
   flex-wrap: wrap;
 }
-.site-name {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-.site-name:hover { text-decoration: none; opacity: 0.8; }
 
 .site-nav {
   display: flex;
